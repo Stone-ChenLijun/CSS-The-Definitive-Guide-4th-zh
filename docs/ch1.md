@@ -42,7 +42,7 @@ CSS 就是在这种环境中引入的。它的目标是提供一种简单的、�
 
 #### 非替换元素
 
-大多数 HTML 元素是非替换元素。这意味着它们的内容由用户代理(通常是浏览器)在元素本身生成的框中显示。例如，`<span>hi there</span>` 是一个不可替换的元素，文本“hi there”将由用户代理显示。这适用于 HTML 中的段落、标题、表格单元格、列表和几乎所有其他内容。
+大多数 HTML 元素是非替换元素。这意味着它们的内容由用户代理(通常是浏览器)在元素本身生成的框中显示。例如 `<span>hi there</span>` 是一个不可替换的元素，文本“hi there”将由用户代理显示。这适用于 HTML 中的段落、标题、表格单元格、列表和几乎所有其他内容。
 
 ### 1.2.2 元素显示角色
 
@@ -64,9 +64,9 @@ CSS 就是在这种环境中引入的。它的目标是提供一种简单的、�
 
 为了了解它是如何工作的，让我们考虑一个 CSS 属性 display。
 
-你可能已经注意到了这里有许多取值，只有其中三个是我提到过的：`block`、`inline`和`list-item`。这些取值的大部分会在本书其他部分介绍；例如`grid`和`inline-grid`涵盖在介绍栅格布局的独立的一章，跟表格相关的值都包含在介绍 CSS 表格布局的章节中。
+你可能已经注意到了这里有许多取值，只有其中三个是我提到过的： `block`、 `inline` 和 `list-item`。这些取值的大部分会在本书其他部分介绍；例如 `grid` 和 `inline-grid` 涵盖在介绍栅格布局的独立的一章，跟表格相关的值都包含在介绍 CSS 表格布局的章节中。
 
-现在我们把注意力放在`block`和`inline`上，看下面的代码：
+现在我们把注意力放在 `block` 和 `inline` 上，看下面的代码：
 
 ```html
 <body>
@@ -74,7 +74,7 @@ CSS 就是在这种环境中引入的。它的目标是提供一种简单的、�
 </body>
 ```
 
-这里有两个块级元素（`body`和`p`）和一个行内元素（`em`）。根据 HTML 规范，`em`可以作为`p`的后代，但反过来则不行。通常 HTML 的层级结构允许行内元素作为块级元素的后代，而反过来却不行。
+这里有两个块级元素（`body`和`p`）和一个行内元素（`em`）。根据 HTML 规范， `em` 可以作为 `p` 的后代，但反过来则不行。通常 HTML 的层级结构允许行内元素作为块级元素的后代，而反过来却不行。
 
 CSS 则没有这样的限制，你可以保持现有的标签结构，然后修改这两个元素的显示角色：
 
@@ -116,9 +116,9 @@ em {
 </book>
 ```
 
-因为`display`属性的默认值是`inline`，所以这块内容会默认被显示为行内文本，就像图 1-2 所示的那样。这样的排版不太有用。
+因为 `display` 属性的默认值是 `inline`，所以这块内容会默认被显示为行内文本，就像图 1-2 所示的那样。这样的排版不太有用。
 
-<Figures figure="1-2">Default display of an XML document</Figures>
+<Figures figure="1-2">XML 文档的默认显示</Figures>
 
 你可以用`display`来定义文档的基本板式：
 
@@ -136,29 +136,19 @@ pubdate {
 }
 ```
 
-We’ve now set five of the seven elements to be block and two to be inline. This means each of the block elements will be treated much as div is treated in HTML, and the two inlines will be treated in a manner similar to span.
+这样就把 7 个元素中的 5 个设置为块级元素，2 个设置为行内元素。这意味着每个块级元素会像 HTML 中的 div 那样被处理，而 2 个行内元素会像行内元素一样被处理。
 
-> 这样把 7 种元素中的 5 个设置成块级元素，2 个设置成行内元素。块级元素会被像 HTML 中的`div`那样处理，两个行内元素会被类似`span`那样处理。
+这种设置显示角色的基本能力使得 CSS 在各种场景下都非常有用。我们可以基于上面的规则，添加一些更具视觉效果的样式，然后得到如图 1-3 这样的显示效果。
 
-This fundamental ability to affect display roles makes CSS highly useful in a variety of situations. We could take the preceding rules as a starting point, add a few other styles for greater visual impact, and get the result shown in Figure 1-3.
+<Figures figure="1-3">应用样式后的 XML 文档</Figures>
 
-> 因为这种设置显示角色的基本能力，CSS 在各种场景下都非常有用。你可以从上面的规则开始，添加一些更具视觉效果的样式，然后得到像图 3 这样的显示效果。
-
-<Figures figure="1-3">Styled display of an XML document</Figures>
-
-Before learning how to write CSS in detail, we need to look at how one can associate CSS with a document. After all, without tying the two together, there’s no way for the CSS to affect the document. We’ll explore this in an HTML setting since it’s the most familiar.
-
-> 在详细学习如何编写 CSS 之前，我们先要看一下如何关联 CSS 和文档，毕竟，如果不把它们结合在一起，CSS 是无法对文档起作用的。我们从最熟悉的 HTML 设置开始。
+在详细学习如何编写 CSS 之前，我们先要看一下如何关联 CSS 和文档，毕竟，如果不把它们结合在一起，CSS 是无法对文档起作用的。我们从最熟悉的 HTML 设置开始。
 
 ## 1.3 连接 CSS 和 HTML
 
-I’ve mentioned that HTML documents have an inherent structure, and that’s a point worth repeating. In fact, that’s part of the problem with web pages of old: too many of us forgot that documents are supposed to have an internal structure, which is altogether different than a visual structure. In our rush to create the coolest-looking pages on the web, we bent, warped, and generally ignored the idea that pages should contain information with some structural meaning.
+我提到过 HTML 文档存在一个固有结构，这一点值得重复一下。实际上有个旧网页开发遗留的问题：太多人忘记了文档是应该有一个内在结构的，这与视觉上的结构是完全不同的。我们急于在 Web 上创建看起来最酷的网页，我们改造转换、修饰装点，全然忽视了页面应该包含具有一些结构意义的信息。
 
-> 我提到过 HTML 文档存在一个固有结构，这一点值得重复一下。实际上有个旧网页开发遗留的问题：我们太多人忘记了文档是应该有一个内在结构的，这与视觉上的结构是完全不同的。我们急于在 Web 上创建看起来最酷的网页，我们改造转换、修饰装点，全然忽视了页面应该包含具有一些结构意义的信息。
-
-That structure is an inherent part of the relationship between HTML and CSS; without it, there couldn’t be a relationship at all. To understand it better, let’s look at an example HTML document and break it down by pieces:
-
-> 这种结构是 HTML 和 CSS 之间关系所固有的组成部分，没有它，关系就不会存在。为了更好地理解这种结构，我们把下面这个示例的 HTML 文档拆解来看：
+这种结构是 HTML 和 CSS 之间关系所固有的组成部分，没有它，关系就不会存在。为了更好地理解这种结构，我们把下面这个示例的 HTML 文档拆解来看：
 
 ```html
 <html>
@@ -184,41 +174,29 @@ That structure is an inherent part of the relationship between HTML and CSS; wit
 </html>
 ```
 
-The result of this markup and the applied styles is shown in Figure 1-4.
+代码的应用样式后的处理结果如图 1-4 所示。
 
-> 代码的处理结果及应用的样式的如图 1-4 所示。
+<Figures figure="1-4">简单文档</Figures>
 
-<Figures figure="1-4">A simple document</Figures>
+ 现在我们来看文档关联 CSS 的几种方式。
 
-Now, let’s examine the various ways this document connects to CSS.
+### 1.3.1 link 标签
 
-> 现在我们来看文档关联 CSS 的几种方式。
-
-### 1.3.1 The link Tag
-
-First, consider the use of the link tag:
+先来看看 link 标签的用法：
 
 ```html
 <link rel="stylesheet" type="text/css" href="sheet1.css" media="all" />
 ```
 
-The `link` tag is a little-regarded but nonetheless perfectly valid tag that has been hanging around the HTML specification for years, just waiting to be put to good use. Its basic purpose is to allow HTML authors to associate other documents with the document containing the `link` tag. CSS uses it to link stylesheets to the document; in Figure 1-5, a stylesheet called `sheet1.css` is linked to the document.
+`link` 标签是一个有些被忽视的标签，但它是在 HTML 规范中存在了许多年的合法标签，一直在等着被善加利用。它最初的目的是允许 HTML 开发者把其它文档引入使用了 `link ` 标签的文档中。CSS 用它把样式表链接到文档中，如图 1-5，一个名为 `sheet1.css` 的样式表被连接到文档。
 
-> `link`标签是一个有些被忽视的标签，但它是在 HTML 规范中存在了许多年的合法标签，一直在等着被善加利用。它最初的目的是允许 HTML 开发者把包含链接标签的文档与其他文档关联起来。CSS 使用`Link`标签把样式表链接到文档中，如图 5，一个名为`sheet1.css`的样式表被连接到文档。
+这些样式表不是 HTML 文档的一部分但仍被应用于文档中，它们被称为**外部样式表**，因为它们存在于 HTML 文档的外部（看图）。
 
-These stylesheets, which are not part of the HTML document but are still used by it, are referred to as external stylesheets. This is because they’re stylesheets that are external to the HTML document. (Go figure.)
+要成功加载外部样式表， `link` 必须作为 `head` 元素的直接下级，不能放在任何其它元素中。这将使得 web 浏览器成功定位和加载样式表，并使用它包含的任何样式渲染 HTML 文档，渲染结果如图 1-5 所示。图 1-5 还展示了通过 @import 指令加载外部 `sheet2.css`。导入指令必须置于包含它们的样式表的开头，除此之外，别无限制。
 
-> 这些样式表不是 HTML 文档的一部分但仍被应用于文档中，它们被称为**外部样式表**，因为它们存在于 HTML 文档的外部（看图）。
+<Figures figure="1-5">外部文件如何被引入文档的示例</Figures>
 
-To successfully load an external stylesheet, `link` must be placed inside the `head` element but may not be placed inside any other element. This will cause the web browser to locate and load the stylesheet and use whatever styles it contains to render the HTML document in the manner shown in Figure 1-5. Also shown in Figure 1-5 is the loading of the external `sheet2.css` via the @import declaration. Imports must be placed at the beginning of the stylesheet that contains them, but they are otherwise unconstrained.
-
-> 要成功加载外部样式表，`link` 必须放在 `head` 元素中，但不能放在任何其他元素中。这将导致 web 浏览器定位和加载样式表，并使用它包含的任何样式以图 1-5 所示的方式呈现 HTML 文档。图 1-5 还显示了外部`sheet2.css`的加载情况。通过@import 声明。导入必须放在包含它们的样式表的开头，但在其他方面不受约束。
-
-<Figures figure="1-5">A representation of how external stylesheets are applied to documents</Figures>
-
-And what is the format of an external stylesheet? It’s a list of rules, just like those we saw in the previous section and in the example HTML document; but in this case, the rules are saved into their own file. Just remember that no HTML or any other markup language can be included in the stylesheet—only style rules. Here are the contents of an external stylesheet:
-
-> 那么外部样式表是什么样的格式呢？和我们在前面章节中和在示例 HTML 文档中看到的那些样式一样，外部样式也是简单的规则列表，但是这些规则存储在自己的文件里面。要记住，HTML 和其它任何标记语言都不能放进样式表中——它只能包含样式规则。一个外部样式表的内容是这样的：
+那么外部样式表是什么样的格式呢？和我们在前面章节中和在示例 HTML 文档中看到的那些样式一样，外部样式也是简单的规则列表，但是这些规则存储在自己的文件里面。要记住，HTML 和其它任何标记语言都不能放进样式表中——它只能包含样式规则。一个外部样式表的内容是这样的：
 
 ```css
 h1 {
@@ -235,27 +213,19 @@ h3 {
 }
 ```
 
-That’s all there is to it—no HTML markup or comments at all, just plain-and-simple style declarations. These are saved into a plain-text file and are usually given an extension of `.css`, as in `sheet1.css`.
+这就是它的全部内容——没有 HTML 标记或者注释，只有干净简单的样式声明。它们被存储在纯文本文件中，通常用 `.css` 作为后缀，例如 `sheet1.css`。
 
-> 这就是它的全部内容——没有 HTML 标记或者注释，只有干净简单的样式声明。它们被存储在纯文本文件中，通常用`.css`作为后缀，例如`sheet1.css`。
+<Tips tips="orange">外部样式表不能包含任何文档标签，仅能出现 CSS 规则和 CSS 注释（本章后续会介绍）。外部样式表中的文档标记会导致部分或整个样式表被忽略。</Tips>
 
-<Tips tips="orange">An external stylesheet cannot contain any document markup at all, only CSS rules and CSS comments, both of which are explained later in the chapter. The presence of markup in an external stylesheet can cause some or all of it to be ignored.</Tips>
+文本扩展名不是必须的，但一些比较老的浏览器仅将以 .css 作为扩展名的文件视作样式表，即便 link 标签中已指定了正确的类型 text/css。实际上，一些 web 浏览器不会将一个文件视作 text/css，除非其文件名以 .css 结尾。不过，这种行为通常可以通过修改服务器配置文件来修复。
 
-The filename extension is not required, but some older browsers won’t recognize the file as containing a stylesheet unless it actually ends with .css, even if you do include the correct type of text/css in the link element. In fact, some web servers won’t hand over a file as text/css unless its filename ends with .css, though that can usually be fixed by changing the server’s configuration files.
+#### 属性
 
-#### Attributes
+对于 link 标记的其余部分，属性和值非常简单。rel 代表“关系”，在本例中，关系是 stylesheet。type 属性总是设置为 text/css。此值描述使用 link 标签加载的文档类型。这样，web 浏览器就知道 stylesheet 是一个 CSS 样式表，这将决定浏览器如何处理它导入的数据。毕竟，将来可能还会使用其它样式语言，所以声明您正在使用的 hich 语言是很重要的。
 
-For the rest of the link tag, the attributes and values are fairly straightforward. rel stands for “relation,” and in this case, the relation is stylesheet. The attribute type is always set to text/css. This value describes the type of data that will be loaded using the link tag. That way, the web browser knows that the stylesheet is a CSS stylesheet, a fact that will determine how the browser deals with the data it imports. After all, there may be other style languages used in the future, so it’s important to declare hich language you’re using.
+接下来介绍 href 属性。这个属性的值是样式表的 URL。这个 URL 可以是绝对的，也可以是相对的，按需选择。在我们的示例中，URL 是相对的。它也可以是类似于 http://meyerweb.com/sheet1.css 这样的东西。
 
-> 对于 link 标记的其余部分，属性和值非常简单。rel 代表“关系”，在本例中，关系是样式表。属性类型总是设置为 text/css。此值描述将使用链接标记加载的数据类型。这样，web 浏览器就知道样式表是一个 CSS 样式表，这将决定浏览器如何处理它导入的数据。毕竟，将来可能还会使用其他样式语言，所以声明您正在使用的 hich 语言是很重要的。
-
-Next, we find the href attribute. The value of this attribute is the URL of your style‐sheet. This URL can be either absolute or relative, depending on what works for you. In our example, the URL is relative. It just as easily could have been something like http://meyerweb.com/sheet1.css.
-
-> 接下来，我们找到 href 属性。这个属性的值是你的样式表的 URL。这个 URL 可以是绝对的，也可以是相对的，这取决于什么适合您。在我们的示例中，URL 是相对的。它也可以是类似于http://meyerweb.com/sheet1.css这样的东西。
-
-Finally, we have a media attribute. The value of this attribute is one or more media descriptors, which are rules regarding media types and the features of those media, with each rule separated by a comma. Thus, for example, you can use a linked style‐sheet in both screen and projection media:
-
-> 最后，我们有一个媒体属性。此属性的值是一个或多个媒体描述符，它们是关于媒体类型和这些媒体特性的规则，每个规则由逗号分隔。因此，例如，你可以在屏幕和投影媒体中使用链接样式表:
+最后还有有一个 media 属性。此属性的值是一个或多个媒体描述符，指明样式表的目标媒体类型和这些媒体特性的规则，每个规则由逗号分隔。因此，例如，你可以在屏幕和投影媒体中使用链接样式表:
 
 ```html
 <link
@@ -266,18 +236,18 @@ Finally, we have a media attribute. The value of this attribute is one or more m
 />
 ```
 
-Media descriptors can get quite complicated, and are explained in detail later in the chapter. For now, we’ll stick with the basic media types shown.
+媒体描述符非常复杂，本章后面会详细介绍。现阶段，我们先只管用最简单的媒体类型。
 
-Note that there can be more than one linked stylesheet associated with a document.
+注意，一篇文档可以引入超过一个样式表。
 
-In these cases, only those link tags with a rel of stylesheet will be used in the initial display of the document. Thus, if you wanted to link two stylesheets named basic.css and splash.css, it would look like this:
+实际上，只有那些设置了 ref 属性的 link 标签引入的样式表会影响文档。所以，如果你要同时引入名为 basic.css 和 splash.css 的样式表，要像这样：
 
 ```html
 <link rel="stylesheet" type="text/css" href="basic.css" />
 <link rel="stylesheet" type="text/css" href="splash.css" />
 ```
 
-This will cause the browser to load both stylesheets, combine the rules from each, and apply them all to the document. For example:
+这会使得浏览器加载这两个样式表，合并两个样式表中的规则，并将合并后的规则应用至文档。例如：
 
 ```html
 <link rel="stylesheet" type="text/css" href="basic.css" />
@@ -292,19 +262,13 @@ This will cause the browser to load both stylesheets, combine the rules from eac
 </p>
 ```
 
-The one attribute that is not in this example markup, but could be, is the title attribute. This attribute is not often used, but it could become important in the future and, if used improperly, can have unexpected effects. Why? We will explore that in the next section.
+这段代码中未展示的另一个关键属性是 title。这个属性不常用到，但是未来会变得很重要，而且如果使用不当，会导致不可预料的影响。为什么呢？我们会在下一章仔细讨论。
 
-> The one attribute that is not in this example markup, but could be, is the title attribute. This attribute is not often used, but it could become important in the future and, if used improperly, can have unexpected effects. Why? We will explore that in the next section.
+#### 备选样式表
 
-#### Alternate stylesheets
+还可以通过设置 rel 属性的值为 alternate stylesheet 定义备选样式表。备选样式表仅在用户主动选中时才会应用到文档表示层。
 
-It’s also possible to define alternate stylesheets. These are defined by making the value of the rel attribute alternate stylesheet, and they are used in document presentation only if selected by the user.
-
-> 还可以定义其他样式表。通过使 rel 属性的值成为备选样式表来定义它们，并且只有在用户选择时才在文档表示中使用它们。
-
-Should a browser be able to use alternate stylesheets, it will use the values of the link element’s title attributes to generate a list of style alternatives. So you could write the following:
-
-> 如果浏览器能够使用替代样式表，它将使用 link 元素的 title 属性的值来生成样式替代列表。你可以这样写:
+如果浏览器能够使用备选样式表，它将使用 link 元素的 title 属性的值来生成备选样式列表。代码如下:
 
 ```html
 <link rel="stylesheet" type="text/css" href="sheet1.css" title="Default" />
@@ -322,13 +286,13 @@ Should a browser be able to use alternate stylesheets, it will use the values of
 />
 ```
 
-Users could then pick the style they want to use, and the browser would switch from the first one, labeled “Default” in this case, to whichever the user picked. Figure 1-6 shows one way in which this selection mechanism might be accomplished (and in fact was, early in the resurgence of CSS).
+随后用户可以选择他们期望的样式，而浏览器也会从“默认”样式切换至用户选择的样式。图 1-6 显示了如何执行这一选择的一种方式（实际上这是 CSS 流行的早期的选择方式）。
 
-<Figures figure="1-6">A browser offering alternate stylesheet selection</Figures>
+<Figures figure="1-6">提供备选样式表选择的浏览器</Figures>
 
-<Tips tips="blue">As of late 2016, alternate stylesheets were supported in most Gecko-based browsers like Firefox, and in Opera. They could be supported in the Internet Explorer family through the use of JavaScript but are not natively supported by those browsers. The WebKit family did not support selecting alternate stylesheets. Compare this to the age of the browser shown in Figure 1-6--it’s almost shocking.</Tips>
+<Tips tips="blue">截止2016 年末，备选样式表已被大多数基于 Gecko 引擎的浏览器支持，例如 Firefox 和 Opera。Internet Explorer 家族的浏览器未原生支持备选样式表，但可以通过 Javascript 来支持备选样式表。而 WebKit 家族的浏览器并不支持备选样式表。对比图 1-6 中所使用的浏览器的年龄，这真的有够惊人的。</Tips>
 
-It is also possible to group alternate stylesheets together by giving them the same title value. Thus, you make it possible for the user to pick a different presentation for your site in both screen and print media:
+还能通过给 title 属性赋予相同的值的方式将备选样式表分组。这就使得将站点在屏幕和打印预览时以完全不同的方式进行展示成为可能：
 
 ```html
 <link
@@ -361,9 +325,9 @@ It is also possible to group alternate stylesheets together by giving them the s
 />
 ```
 
-If a user selects “Big Text” from the alternate stylesheet selection mechanism in a conforming user agent, then bigtext.css will be used to style the document in the screen medium, and print-bigtext.css will be used in the print medium. Neither sheet1.css nor print-sheet1.css will be used in any medium.
+若用户从用户代理的选择框中选中了 "Big Text" 备用样式表，那么 bigtext.css 将会渲染屏幕上的文档，而 print-bigtext.css 会渲染打印预览时的文档。而 sheet1.css 和 print-sheet1.css 将不会在影响任何媒体中的文档。
 
-Why is that? Because if you give a link with a rel of stylesheet a title, then you are designating that stylesheet as a preferred stylesheet. This means that its use is preferred to alternate stylesheets, and it will be used when the document is first displayed. Once you select an alternate stylesheet, however, the preferred stylesheet will not be used. Furthermore, if you designate a number of stylesheets as preferred, then all but one of them will be ignored. Consider the following code example:
+为什么呢？这是因为，如果你为一个拥有 ref 属性的 link 标签赋予了 titlte 属性，其就成为首选样式表。这意味着其优先级比备选样式表高，且会在文档首次显示时启用。不过，一旦你选择了备用样式表，则首选样式表将被弃用。此外，如果你指定了好几个首选样式表，启用其中一个会导致其它的都被弃用。思考以下代码示例：
 
 ```html
 <link
@@ -386,13 +350,13 @@ Why is that? Because if you give a link with a rel of stylesheet a title, then y
 />
 ```
 
-All three link elements now refer to preferred stylesheets, thanks to the presence of a title attribute on all three, but only one of them will actually be used in that manner. The other two will be ignored completely. Which two? There’s no way to be certain, as HTML doesn’t provide a method of determining which preferred stylesheets should be ignored and which should be used.
+三个 link 元素现在均被指定为首选样式表，因为它们都设置了 title 属性，但在这种情况下，仅有一个会真的生效。另外两个会被完全忽略。哪两个呢？答案是不确定，因为 HTML 并没有提供启用或忽略首选样式表的方法。
 
-If you don’t give a stylesheet a title, then it becomes a persistent stylesheet and is always used in the display of the document. Often, this is exactly what an author wants.
+如果没有给样式表赋予一个 title，那么其就会成为永久生效的样式表，一直影响着文档的展示。通常情况下，这是用户期望的行为。
 
-### 1.3.2 The style Element
+### 1.3.2 style 元素
 
-The style element is one way to include a stylesheet, and it appears in the document itself:
+style 元素能包裹样式，且直属于文档：
 
 ```html
 <style type="text/css">
@@ -400,19 +364,19 @@ The style element is one way to include a stylesheet, and it appears in the docu
 </style>
 ```
 
-style should always use the attribute type; in the case of a CSS document, the correct value is "text/css", just as it was with the link element.
+style 元素应该总是使用 type 属性；对于 CSS 文档，正确的取值是 "text/css"，就像 link 元素中的一样。
 
-The style element should always start with `<style type="text/css">`, as shown in the preceding example. This is followed by one or more styles and is finished with a closing `</style>` tag. It is also possible to give the style element a media attribute, which functions in the same manner as previously discussed for linked stylesheets. The styles between the opening and closing style tags are referred to as the document stylesheet or the embedded stylesheet (because this kind of stylesheet is embedded within the document). It will contain many of the styles that will apply to the document, but it can also contain multiple links to external stylesheets using the @import directive.
+如上面的例子所示，style 元素应该总是以 `<style type="text/css">` 开头，随后跟着一项或多项样式配置，并以关闭标签 `</style>` 作为结束。也可以为 style 元素指定 media 属性，功能与 link 元素中的一致。位于起始和结束 style 标签之间的样式被称为文档样式或内嵌样式（因为这种样式表是内嵌在文档中的）。它除了能包含将会影响文档的样式之外，还能包含通过 @import 指令引入的多个外部样式表。
 
-### 1.3.3 The @import Directive
+### 1.3.3 @import 指令
 
-Now we’ll discuss the stuff that is found inside the style tag. First, we have something very similar to link: the @import directive:
+现在我们要讨论 style 标签中的成员。首先是与 link 功能类似的 @import 指令：
 
 ```css
 @import url(sheet2.css);
 ```
 
-Just like link, @import can be used to direct the web browser to load an external stylesheet and use its styles in the rendering of the HTML document. The only major difference is in the syntax and placement of the command. As you can see, @import is found inside the style container. It must be placed before the other CSS rules or it won’t work at all. Consider this example:
+就像 link 一样，@import 可用于指示浏览器加载外部样式表，并使用其中的样式渲染 HTML 文档。唯一主要的区别是语法和命令的位置。如你所见，@import 位于 style 内部。它必须位于其它 CSS 规则之前，否则不会生效。思考以下示例：
 
 ```html
 <style type="text/css">
@@ -423,7 +387,7 @@ Just like link, @import can be used to direct the web browser to load an externa
 </style>
 ```
 
-Like link, there can be more than one @import statement in a document. Unlike link, however, the stylesheets of every @import directive will be loaded and used; there is no way to designate alternate stylesheets with @import. So, given the following markup:
+与 link 类似，文档中可以使用多个 @import 语句。而与 link 不同的是，每个 @import 指令引入的样式表总是会被加载和使用。通过 @import 无法指定备用样式表。所以，有以下代码：
 
 ```css
 @import url(sheet2.css);
@@ -431,9 +395,9 @@ Like link, there can be more than one @import statement in a document. Unlike li
 @import url(zany.css);
 ```
 
-all three external stylesheets will be loaded, and all of their style rules will be used in the display of the document.
+三个样式表均会被加载，且它们的样式规则会被用于渲染文档。
 
-As with link, you can restrict imported stylesheets to one or more media by providing media descriptors after the stylesheet’s URL:
+与 link 一样，你可以在样式 URL 之后添加媒体描述符，限制被导入的样式表仅针对一个或多个媒体。
 
 ```css
 @import url(sheet2.css) all;
@@ -441,9 +405,9 @@ As with link, you can restrict imported stylesheets to one or more media by prov
 @import url(zany.css) projection, print;
 ```
 
-As noted in “The link Tag” on page 8, media descriptors can get quite complicated, and are explained in detail in Chapter 20, Media-Dependent Styles.
+第 8 页的“link 标签”提到媒体描述符可以十分复杂，而在第 20 章的媒体依赖样式我们会详细介绍。
 
-@import can be highly useful if you have an external stylesheet that needs to use the styles found in other external stylesheets. Since external stylesheets cannot contain any document markup, the link element can’t be used—but @import can. Therefore, you might have an external stylesheet that contains the following:
+如果你有一个需要引用另一个外部样式表的外部样式表，@import 就变得非常有用。由于外部样式表不能包含任何 HTML 文档标记，那么就不能使用 link 元素，但可以用 @import。因此，你可能有如下的一个外部样式表：
 
 ```css
 @import url(http://example.org/library/layout.css);
@@ -457,23 +421,23 @@ h1 {
 }
 ```
 
-Well, maybe not those exact styles, but hopefully you get the idea. Note the use of both absolute and relative URLs in the previous example. Either URL form can be used, just as with link.
+当然，可能样式不完全一样，但好在你学会了这个方法。注意前文例子中提到的绝对和相对 Url。就像 link 一样，这里两种形式都可以用。
 
-Note also that the @import directives appear at the beginning of the stylesheet, as they did in the example document. CSS requires the @import directive to come before any other rules in a stylesheet. An @import that comes after other rules (e.g., body {color: red;}) will be ignored by conforming user agents.
+同时注意出现在样式表开头的 @import 指令，就像示例文档中的一样。CSS 要求 @import 指令出现在样式文件中所有具体样式的前面。出现在具体样式（如 body {color: red;}）之后的 @import 指令将会被用户代理忽略。
 
-<Tips tips="orange">Older versions of Internet Explorer for Windows do not ignore any @import directive, even those that come after other rules. Since other browsers do ignore improperly placed @import directives, it is easy to mistakenly place the @import directive incorrectly and thus alter the display in other browsers.</Tips>
+<Tips tips="orange">Windows 上老版本的 Internet Explorer 不会忽略任何 @import 指令，即便是那些出现在具体样式规则之后的。由于其它浏览器都会忽略未未正确放置的 @import 指令，这导致很容易将 @import 指令放在错误的位置，修改其它浏览器中的显示方式。</Tips>
 
 ### 1.3.4 HTTP Linking
 
-There is another, far more obscure way to associate CSS with a document: you can link the two via HTTP headers.
+还有一种鲜为人知的关联 CSS 与文档的方式：通过 HTTP 请求头。
 
-Under Apache, this can be accomplished by adding a reference to the CSS file in a .htaccess file. For example:
+在 Apache 下，可以通过在 .htaccess 文件中添加一个指向 CSS 文件的引用的方法完成。
 
 ```css
 Header add Link "</ui/testing.css>;rel=stylesheet;type=text/css"
 ```
 
-This will cause supporting browsers to associate the referenced stylesheet with any documents served from under that .htaccess file. The browser will then treat it as if it were a linked stylesheet. Alternatively, and probably more efficiently, you can add an equivalent rule to the server’s httpd.conf file:
+这会使得所有支持此功能的浏览器将该样式文件与所有受此 .htaccess 文件影响的文档进行关联。浏览器会像处理通过 link 引入的样式表一样处理此样式表。或者，你可以使用另一个种更高效的方法，在 httpd.conf 文件中添加一条等效的规则：
 
 ```css
 <Directory /path/to/ /public/html/directory>
@@ -481,15 +445,15 @@ Header add Link "</ui/testing.css>;rel=stylesheet;type=text/css"
 </Directory>
 ```
 
-The effect is exactly the same in supporting browsers. The only difference is in where you declare the linking.
+在支持的浏览器中，两种方法的效果一致。唯一的区别是声明 linking 的位置。
 
-You probably noticed the use of the term “supporting browsers.” As of late 2017, the widely used browsers that support HTTP linking of stylesheets are the Firefox family and Opera. That restricts this technique mostly to development environments based on one of those browsers. In that situation, you can use HTTP linking on the test server to mark when you’re on the development site as opposed to the public site. It’s also an interesting way to hide styles from the WebKit and Internet Explorer families, assuming you have a reason to do so.
+你可能注意到了术语“支持的浏览器”。截止 2017 年底，用户数较多的支持 HTTP linking 样式表的浏览器主要是 Firefox 家族和 Opera。这就限制了这项技术基本只能在开发环境下，基于这些浏览器使用。这种情况下，你可以在开发站点（不是正式站）上利用测试服上的 HTTP linking 。这也是一个有趣方法对 Webkit 和 Internet Explorer 家族隐藏样式，假定你有这么做的原因。
 
-<Tips tips="blue">There are equivalents to this technique in common scripting languages such as PHP and IIS, both of which allow the author to emit HTTP headers. It’s also possible to use such languages to explicitly write a link element into the document based on the server offering up the document. This is a more robust approach in terms of browser support: every browser supports the link element.</Tips>
+<Tips tips="blue">在常见的脚本语言中，如 PHP 和 IIS，也有等效的技巧，因为这些语言都支持发送 HTTP 头。还可以在服务端渲染模式下，利用这些语言显式地在文档头中写入一个 link 元素。就浏览器的支持性而言，这种方法兼容性更强：每个浏览器都支持 link 元素。</Tips>
 
-### 1.3.5 Inline Styles
+### 1.3.5 内联样式
 
-For cases where you want to just assign a few styles to one individual element, without the need for embedded or external stylesheets, employ the HTML attribute style to set an inline style:
+对于只想为特定元素配置少量样式的场景，无需使用内嵌或外部样式，可以使用 HTML 的 style 属性来设置内联样式：
 
 ```html
 <p style="color: gray;">
@@ -498,17 +462,17 @@ For cases where you want to just assign a few styles to one individual element, 
 </p>
 ```
 
-The style attribute can be associated with any HTML tag whatsoever, except for those tags that are found outside of body (head or title, for instance).
+style 属性可以应用至任何 HTML 标签，除了那些在 body 之外的标签（例如 head 或 title）。
 
-The syntax of a style attribute is fairly ordinary. In fact, it looks very much like the declarations found in the style container, except here the curly braces are replaced by double quotation marks. So `<p style="color: maroon; background: yellow;">` will set the text color to be maroon and the background to be yellow for that paragraph only. No other part of the document will be affected by this declaration.
+style 属性的语法相当普通。实际上，它与 style 容器中声明的非常相似，除了此处的花括号被双引号代替。所以， `<p style="color: maroon; background: yellow;">` 会将段落的文本颜色设置栗色，背景色设置未黄色。文档的其它部分不会收此声明的影响。
 
-Note that you can only place a declaration block, not an entire stylesheet, inside an inline style attribute. Therefore, you can’t put an @import into a style attribute, nor can you include any complete rules. The only thing you can put into the value of a style attribute is what might go between the curly braces of a rule.
+注意，在内联样式中，你只能放一个声明块，而不是完整的样式表。因此，你不能将 @import 语句放入 style 属性，也不能在其中包含完整的规则。你唯一可以放入 style 属性的就是花括号之间的样式。
 
-Use of the style attribute is not generally recommended. Indeed, it is very unlikely to appear in XML languages other than HTML. Many of the primary advantages of CSS—the ability to organize centralized styles that control an entire document’s appearance or the appearance of all documents on a web server—are negated when you place styles into a style attribute. In many ways, inline styles are not much better than the font tag, although they do have a good deal more flexibility in terms of what visual effects they can apply
+一般不推荐使用 style 属性。实际上，除了 HTML 语言之外，其它语言，例如 XML 中不太可能出现这种用法。当你将样式放入 style 属性时，集中管理样式文件的优点，如完全控制一份文档的表现形式，或 web 服务器上所有文档的部分样式就被否定了。很多情况下，内联样式都没有比 font 标签好多少，尽管它在处理视觉效果方面更加灵活和多样化。
 
-## 1.4 Stylesheet Contents
+## 1.4 样式表内容
 
-So after all of that, what about the actual contents of the stylesheets? You know, stuff like this:
+说了这么多，究竟啥是样式表的实际内容呢？如你所知，像这些：
 
 ```css
 h1 {
@@ -518,12 +482,11 @@ body {
   background: yellow;
 }
 ```
+诸如此类的样式组成了内嵌样式，不论简单或复杂，短的或长的。很少有文档会不包含任何规则，虽然可以通过一些简单的 @import 指令而不显示类似上例中的规则。在读本书的后续内容之前，要了解一些最高级的规则——哪些内容能进入样式表，哪些不能。
 
-Styles such as these comprise the bulk of any embedded stylesheet—simple and complex, short and long. Rarely will you have a document where the style element does not contain any rules, although it’s possible to have a simple list of @import declarations with no actual rules like those shown in the previous example. Before we get going on the rest of the book, there are a few top-level things to cover regarding what can or can’t go into a stylesheet.
+### 1.4.1 标记
 
-### 1.4.1 Markup
-
-There is no markup in stylesheets. This might seem obvious, but you’d be surprised. The one exception is HTML comment markup, which is permitted inside style elements for historical reasons:
+样式表中不能有标记语法。这很明显，不过你会大吃一惊。唯一的例外是 HTML 注释标记，因为历史原因，它可以出现在 style 元素之内：
 
 ```html
 <style type="text/css">
@@ -534,43 +497,43 @@ There is no markup in stylesheets. This might seem obvious, but you’d be surpr
 </style>
 ```
 
-That’s it.
+懂了吗，老铁。
 
-### 1.4.2 Rule Structure
+### 1.4.2 规则结构
 
-To illustrate the concept of rules in more detail, let’s break down the structure.
+要更详细的介绍规则的原则，让我们把它拆成几部分。
 
-Each rule has two fundamental parts: the selector and the declaration block. The declaration block is composed of one or more declarations, and each declaration is a pairing of a property and a value. Every stylesheet is made up of a series of rules. Figure 1-7 shows the parts of a rule.
+每条规则有两个基本组成：选择器和声明块。声明块由一条或多条声明组成，且每条声明都是一个属性-值对。每个样式表由一系列规则组成。图 1-7 显示了一条规则的组成部分。
 
-<Figures figure="1-7">The structure of a rule</Figures>
+<Figures figure="1-7">规则结构</Figures>
 
-The selector, shown on the left side of the rule, defines which piece of the document will be affected. In Figure 1-7, h1 elements are selected. If the selector were p, then all p (paragraph) elements would be selected.
+位于规则左侧的选择器定义了文档的哪部分会受到影响。在图 1-7 中，h1 元素被选中了。若选择器为 p，则所有的 p （段落）都会被选中。
 
-The right side of the rule contains the declaration block, which is made up of one or more declarations. Each declaration is a combination of a CSS property and a value of that property. In Figure 1-7, the declaration block contains two declarations. The first states that this rule will cause parts of the document to have a color of red, and the second states that part of the document will have a background of yellow. So, all of the h1 elements in the document (defined by the selector) will be styled in red text with a yellow background.
+规则的右侧是声明块，由一条或多条声明组成。每条声明都由一个 CSS 属性和值组成。在图 1-7 中，该声明块包含两条声明。第一条语句使得部分文档的前景色为红色，第二条语句会使得部分文档内容的背景色为黄色。所以，该文档中所有的 h1 元素（由选择器指定）都会被格式化为红色字体，黄色背景。
 
-### 1.4.3 Vendor prefixing
+### 1.4.3 供应商前缀
 
-Sometimes you’ll see pieces of CSS with dashes and labels in front of them, like this: `-o-border-image`. These are called vendor prefixes, and are a way for browser vendors to mark properties, values, or other bits of CSS as being experimental or proprietary (or both). As of late 2016, there were a few vendor prefixes in the wild, with the most common being shown in Table 1-1.
+有时候，你会看到一些 CSS 前面有中划线和标签，例如： `-o-border-image`。这些被称作供应商前缀，是浏览器开发商将属性、值或 CSS 的其它位的标识为实验性的或宣誓所有权（有可能两者都有）。截止 2016 年底，只有几个供应商前缀，而最常见的如表 1-1 所示。
 
-| Prefix   | Vendor                                             |
+| 前缀   | 供应商                                             |
 | -------- | -------------------------------------------------- |
 | -epub-   | International Digital Publishing Forum ePub format |
-| -moz-    | Mozilla-based browsers (e.g., Firefox)             |
+| -moz-    | Mozilla-based 浏览器 (例如 Firefox)             |
 | -ms-     | Microsoft Internet Explorer                        |
-| -o-      | Opera-based browsers                               |
-| -webkit- | Webkit-based browsers (e.g., safari and Chrome)    |
+| -o-      | Opera-based 浏览器                               |
+| -webkit- | Webkit-based 浏览器 (例如 safari and Chrome)    |
 
-As Table 1-1 implies, the generally accepted format of a vendor prefix is a dash, a label, and a dash, although a few prefixes erroneously omit the first dash.
+如表 1-1 所示，常见的供应商前缀是一个中划线，一个标签，一个中划线。虽然，有部分厂商错误的省略了开头的中划线。
 
-The uses and abuses of vendor prefixes are long, tortuous, and beyond the scope of this book. Suffice to say that they started out as a way for vendors to test out new features, thus helping speed interoperability without worrying about being locked into legacy behaviors that were incompatible with other browsers. This avoided a whole class of problems that nearly strangled CSS in its infancy. Unfortunately, prefixed properties were then publicly deployed by web authors and ended up causing a whole new class of problems.
+供应商前缀的使用和滥用历史又长又曲折，且超出了本书的范围。可以这么说，它们起初是供应商测试新特性的一种新方法，加速提升了互操作性，无需考虑这些遗留行为是否会与其它浏览器不兼容。这避免了一系列会在早期扼杀 CSS 的问题。不幸的是，前缀属性随后被 web 开发者大量使用，结果导致了一系列新的问题。
 
-As of late 2016, vendor prefixes are a dwindling breed, with old prefixed properties and values being slowly removed from browser implementations. It’s entirely possible that you’ll never write prefixed CSS, but you may encounter it in the wild, or inherit it in a legacy codebase.
+截止 2016 年底，随着旧前缀属性慢慢从浏览器实现中移除，供应商前缀正在逐渐减少。你完全有可能不写任何前缀 CSS，但可能会在别的地方或旧项目代码中看到它。
 
-### 1.4.4 Whitespace Handling
+### 1.4.4 空格处理方式
 
-CSS is basically insensitive to whitespace between rules, and largely insensitive to whitespace within rules, although there are a few exceptions.
+CSS 对规则间的空白符不怎么敏感，对规则内的空白符完全不感冒，虽然有一点点例外。
 
-In general, CSS treats whitespace just like HTML does: any sequence of whitespace characters is collapsed to a single space for parsing purposes. Thus, you can format the hypothetical rainbow rule in the following ways:
+一般来说，CSS 处理空白符的方式与 HTML 一致：连续空白符会被压缩为单个空格后进行解析。因此，你能以以下方式格式化虚拟的彩虹规则：
 
 ```css
 rainbow: infrared red orange yellow green blue indigo violet ultraviolet;
@@ -578,42 +541,42 @@ rainbow: infrared red orange yellow green blue indigo violet ultraviolet;
 rainbow: infrared red orange yellow green blue indigo violet ultraviolet;
 ```
 
-…as well as any other separation patterns you can think up. The only restriction is that the separating characters be whitespace: an empty space, a tab, or a newline, alone or in combination, as many as you like.
+还可以用其它你能想到的分隔方式。唯一的限制是分隔符必须是空白符：空格、制表符(tab)、或换行符，可以独立使用，也可以组合使用， 爱用几个用几个。
 
-Similarly, you can format series of rules with whitespace in any fashion you like. These are just five of an effectively infinite number of possibilities:
+类似的，你可以用空白符以任何你喜欢的风格格式化规则。下面是无穷可能中的五种：
 
 ```css
-html {
-  color: black;
-}
+html{color:black;}
 body {
-  background: white;
+  background:white;
 }
 p {
   color: gray;
 }
 h2 {
-  color: silver;
+  color: 
+  silver;
 }
 ol {
-  color: silver;
+  color
+  :
+  silver;
 }
 ```
 
-As you can see from the first rule, whitespace can be largely omitted. Indeed, this is usually the case with minified CSS, which is CSS that’s had every last possible bit of extraneous whitespace removed. The rules after the first two use progressively more extravagant amounts of whitespace until, in the last rule, pretty much everything that can be separated onto its own line has been.
+从第一条规则可以看出，大量的空格会被忽略。实际上，这是在最小化的 CSS 就是这样的，它会尽可能的移除所有空白符。前两个规则之后的规则逐渐使用更多的空白符，直到最后一个规则中几乎所有可以分离到其行上的东西都被使用为止。
 
-All of these approaches are valid, so you should pick the formatting that makes the most sense—that is, is easiest to read—in your eyes, and stick with it. There are some places where the presence of whitespace is actually required. The most common example is when separating a list of keywords in a value, as in the hypothetical rainbow examples. Those must always be whitespace-separated.
+所有这些方法都是可用的，所有你需要选择最有意义的格式，即最容易阅读和坚持的格式。某些地方必须使用空白符。最常见的例子是值中的一系列关键字，如虚拟彩虹示例。它们必须以空白符分隔。
 
-### 1.4.5 CSS Comments
+### 1.4.5 CSS 注释
 
-CSS does allow for comments. These are very similar to C/C++ comments in that
-they are surrounded by `/*` and `*/`:
+CSS 允许注释。它非常类似 C/C++ 的注释，由 `/*` 和 `*/` 包裹：
 
 ```css
 /* This is a CSS1 comment */
 ```
 
-Comments can span multiple lines, just as in C++:
+注释可以像 C++ 中的一样分布在多行：
 
 ```css
 /* This is a CSS1 comment, and it
@@ -621,66 +584,66 @@ can be several lines long without
 any problem whatsoever. */
 ```
 
-It’s important to remember that CSS comments cannot be nested. So, for example,
-this would not be correct:
+请牢记 CSS 注释是无法嵌套的。所以，下面的例子是错误的：
 
 ```css
-/_ This is a comment, in which we find
-another comment, which is WRONG
-/* Another comment */
-and back to the first comment _/
+/* 
+  This is a comment, in which we find another comment, which is WRONG
+  /* Another comment */
+  and back to the first comment
+*/
 ```
 
-<Tips tips="orange">One way to create “nested” comments accidentally is to temporarily comment out a large block of a stylesheet that already contains a comment. Since CSS doesn’t permit nested comments, the “outside” comment will end where the “inside” comment ends.</Tips>
+<Tips tips="orange">一种不小心创建“嵌套”注释的的场景是临时将一大块本来就包含注释的样式进行注释。由于 CSS 不允许嵌套注释，“外层”注释会在遇到“内层”注释的结束标记时结束。</Tips>
 
-Unfortunately, there is no “rest of the line” comment pattern such as // or # (the latter of which is reserved for ID selectors anyway). The only comment pattern in CSS is /\* \_/. Therefore, if you wish to place comments on the same line as markup, then you need to be careful about how you place them. For example, this is the correct way to do it:
+不幸的是，并没有能注释“本行剩余内容”的语法，例如 // 或 #。CSS 中唯一的注释方法是 /* */。因此，如果你要在一行中放置注释，你需要特别留意其位置。例如，以下是正确的摆放方式：
 
 ```css
 h1 {
   color: gray;
-} /* This CSS comment is several lines */
+} /* 本条 CSS 注释包含好几行 */
 h2 {
   color: silver;
-} /* long, but since it is alongside */
+} /* 内容，不过，因为其跟随在具体的样式 */
 p {
   color: white;
-} /* actual styles, each line needs to */
+} /* 之后，每行注释都需要被 */
 pre {
   color: gray;
-} /* be wrapped in comment markers. */
+} /* 注释语法正确包裹。 */
 ```
 
-Given this example, if each line isn’t marked off, then most of the stylesheet will become part of the comment and thus will not work:
+以下例子中，若每行注释未被正确的关闭，则大部分的样式会因为成为注释的一部分而失效：
 
 ```css
 h1 {
   color: gray;
-} /* This CSS comment is several lines
-h2 {color: silver;} long, but since it is not wrapped
-p {color: white;} in comment markers, the last three
-pre {color: gray;} styles are part of the comment. */
+} /* 本条 CSS 注释包含好几行
+h2 {color: silver;} 内容, 不过，因为其未被
+p {color: white;} 注释语法正确包裹，后三行的
+pre {color: gray;} 样式成为了注释的一部分。*/
 ```
 
-In this example, only the first rule (h1 {color: gray;}) will be applied to the document. The rest of the rules, as part of the comment, are ignored by the browser’s rendering engine.
+在本例中，仅第一条规则(h1 {color: gray;})会被应用至文档。剩余的规则，因为是注释的一部分，会被浏览器的渲染引擎忽略。
 
-<Tips tips="blue">CSS comments are treated by the CSS parser as if they do not exist at all, and so do not count as whitespace for parsing purposes. This means you can put them into the middle of rules—even right inside declarations!</Tips>
+<Tips tips="blue">CSS 转换器处理 CSS 注释时会忽略它们，就像它们并不存在，所以，会跳过处理注释中的空白符。这意味着你可以在声明规则的右侧放置注释！</Tips>
 
-## 1.5 Media Queries
+## 1.5 媒体查询参数
 
-With media queries, an author can define the media environment in which a given stylesheet is used by the browser. In the past, this was handled by setting media types via the media attribute on the link element, on a style element, or in the media descriptor of an @import or @media declaration. Media queries take this concept several steps further by allowing authors to choose stylesheets based on the features of a given media type, using what are called media descriptors.
+通过媒体查询参数，开发者可以定义浏览器应该在何种环境下使用指定样式表。过去，这是通过在 link 元素或 style 元素的 media 属性上，或 @import 的媒体描述符上，或 @media 声明上设置媒体类型的方式处理的。媒体查询通过允许作者使用所谓的媒体描述符，根据给定媒体类型的特征选择样式表，从而使这一概念更进一步。
 
-### 1.5.1 Usage
+### 1.5.1 用法
 
-Media queries can be employed in the following places:
+媒体查询参数可被用在以下位置：
 
-- The media attribute of a link element
-- The media attribute of a style element
-- The media descriptor portion of an @import declaration
-- The media descriptor portion of an @media declaration Queries can range from simple media types to complicated combinations of media types and features.
+- link 元素的 media 属性
+- style 元素的 media 属性
+- @import 声明的媒体描述符部分
+- @media 声明的查询参数中的媒体描述符可以是简单的媒体类型，也可以是复杂媒体类型和功能的组合
 
-### 1.5.2 Simple Media Queries
+### 1.5.2 简单媒体查询参数
 
-Let’s look at some simple media blocks before covering all of the possibilities of media queries. Suppose we want some differing styles for situations where the styles are shown in a projection setting, such as a slide show. Here are two very simple bits of CSS:
+在学习所有媒体查询参数的可能取值之前，让我们先看一些简单的媒体块。假设我们在投影设备（如幻灯片）中需要一些不同的样式。下面是两个非常简单的样式：
 
 ```css
 h1 {
@@ -693,9 +656,9 @@ h1 {
 }
 ```
 
-In this example, h1 elements will be colored maroon in all media, but the body element will get a yellow background only in a projection medium.
+在该例中，所有媒体中的 h1 元素均会被涂成栗色，但 body 元素仅在投影设备中会显示黄色背景。
 
-You can have as many @media blocks as you like in a given stylesheet, each with its own set of media descriptors (see later in this chapter for details). You could even encapsulate all of your rules in an @media block if you chose, like this:
+在一份样式表中，你可以指定任意项 @media 区块，每个区块都包含了特定的媒体描述符（本章后文详细介绍）。如果你乐意的话，可以将所有的规则封装在一个 @media 区块中，像这样：
 
 ```css
 @media all {
@@ -708,26 +671,25 @@ You can have as many @media blocks as you like in a given stylesheet, each with 
 }
 ```
 
-However, since this is exactly the same as if you stripped off the first and last line shown, there isn’t a whole lot of point to doing so.
+不过，这与去掉第一行和最后一行后的表现相同，这么做的实际意义不大。
 
-<Tips tips="blue">The indentation shown in this section was solely for purposes of clarity. You do not have to indent the rules found inside an @media block, but you’re welcome to do so if it makes your CSS easier for you to read.</Tips>
+<Tips tips="blue">本节中的缩进仅是为了清晰的展示。你无需缩进 @media 区块中的规则，但如果这么做能使你的 CSS 更易于阅读的话，还是推荐你这么做的。</Tips>
 
-### 1.5.3 Media Types
+### 1.5.3 媒体类型
 
-The place where we saw projection and all in those examples is where media queries are set. These queries rely on a combination of terms that describe the type of media to be considered, as well as descriptions of the media’s parameters (e.g., resolution or display height), to determine when blocks of CSS should be applied.
+上面例子中的 projection 和 all 所处的位置就是媒体查询参数设置的位置。这些参数依赖一个术语集合，这些术语定义了具体的媒体类型和媒体参数的描述符（如 分辨率或显示器高度），决定何种情况下应该使用 CSS 区块。
 
-The most basic form of media queries are media types, which first appeared in CSS2. These are simple labels for different kinds of media:
+最简单的媒体查询参数形式即媒体类型，最早出现在 CSS 2 中。对于不同类型的媒体，有不同简单标签：
 
-`all`
-Use in all presentational media.
-`print`
-Use when printing the document for sighted users and also when displaying a print preview of the document.
-`screen`
-Use when presenting the document in a screen medium like a desktop computer monitor. All web browsers running on such systems are screen-medium user agents.
+`all` 代表所有媒体。
 
-<Tips tips="blue">As of this writing, a couple of browsers also support projection, which allows a document to be presented as a slideshow. Several mobile-device browsers support the handheld type, but not in consistent ways.</Tips>
+`print` 有视觉的用户打印文档时或展示文档的打印预览时使用。
 
-Multiple media types can be specified using a comma-separated list. The following four examples are all equivalent ways of applying a stylesheet (or a block of rules) in both screen and print media:
+`screen` 在一个屏幕媒体（如桌面显示器）上展示文档时使用。所有的浏览器都运行在中等屏幕的用户代理上。
+
+<Tips tips="blue">在本文书写时，一些浏览器还支持投影，允许像播放幻灯片一样展示文档。也有几个移动设备上的浏览器支持手持(handheld)类型，不过支持方式不尽相同。</Tips>
+
+多项媒体类型可通过逗号列表指定。下面四个例子均能将一个样式表同时应用至屏幕和打印媒体：
 
 ```html
 <link type="text/css" href="frobozz.css" media="screen, print" />
@@ -743,11 +705,11 @@ Multiple media types can be specified using a comma-separated list. The followin
 }
 ```
 
-Things get interesting when you add feature-specific descriptors, such as values that describe the resolution or color depth of a given medium, to these media types.
+在你为这些媒体类型添加更多具体功能的描述符时，事情会更加有趣，例如那些描述了指定媒体的分辨率或颜色深度的值。
 
-### 1.5.4 Media Descriptors
+### 1.5.4 媒体描述符
 
-The placement of media queries will be very familiar to any author who has ever set a media type on a link element or an @import declaration. Here are two essentially equivalent ways of applying an external stylesheet when rendering the document on a color printer:
+那些已经在 link 元素或 @import 声明中设置过媒体类型的人对媒体查询参数的放置位置会非常熟悉。以下是两种事实上等效的，在彩色打印机上应用同一份外部样式表的方法：
 
 ```html
 <link
@@ -762,7 +724,7 @@ The placement of media queries will be very familiar to any author who has ever 
 @import url(print-color.css) print and (color);
 ```
 
-Anywhere a media type can be used, a media query can be used. This means that, following on the examples of the previous section, it is possible to list more than one query in a comma-separated list:
+所有能使用媒体类型的地方均可以使用媒体查询参数。这意味着，按照上一节的示例，可以在逗号分隔的列表中使用多个查询参数：
 
 ```html
 <link
@@ -776,14 +738,9 @@ Anywhere a media type can be used, a media query can be used. This means that, f
 ```css
 @import url(print-color.css) print and (color), screen and (color-depth: 8);
 ```
+只要有一个媒体查询的结果是 "true"，那么就会应用关联的样式表。因此，给定前面的 @import，在渲染至彩色打印机或彩色屏幕时均会应用 print-color.css。若在黑白打印机上打印，两个查询条件都会是 "false"，那么 print-color.css 就不会被应用于文档。在任何屏幕介质上都是如此规则，依此类推。
 
-In any situation where even one of the media queries evaluates to “true,” the associated stylesheet is applied. Thus, given the previous @import, print-color.css will be applied if rendering to a color printer or to a sufficiently colorful screen environment. If printing on a black-and-white printer, both queries will evaluate to “false”, and print-color.css will not be applied to the document. The same holds true in any screen medium, and so on.
-
-> 在任何情况下，即使其中一个媒体查询的结果是“true”，也会应用相关联的样式表。因此，给定前面的@import，如果将其呈现到彩色打印机或彩色屏幕环境中，将应用 print-color.css。如果在黑白打印机上打印，两个查询都将计算为“false”，并且 print-color.css 将不应用于文档。这同样适用于任何屏幕媒体，等等。
-
-Each media descriptor is composed of a media type and one or more listed media features, with each media feature descriptor enclosed in parentheses. If no media type is provided, then it is assumed to be all, which makes the following two examples equivalent:
-
-> 每个媒体描述符由一个媒体类型和一个或多个列出的媒体特性组成，每个媒体特性描述符括在括号中。如果没有提供媒体类型，则假设为 all，这使得下面两个例子等价:
+每个媒体描述符由一个媒体类型和一个或多个列出的媒体特性组成，每个媒体特性描述符括在括号中。如果没有提供媒体类型，则假设为 all，这使得下面两个例子等价:
 
 ```css
 @media all and (min-resolution: 96dpi) {
@@ -794,41 +751,29 @@ Each media descriptor is composed of a media type and one or more listed media f
 }
 ```
 
-Generally speaking, a media feature descriptor is formatted like a property-value pair in CSS. There are a few differences, most notably that some features can be specified without an accompanying value. Thus, for example, any color-based medium will be matched using (color), whereas any color medium using a 16-bit color depth is matched using (color: 16). In effect, the use of a descriptor without a value is a true/false test for that descriptor: (color) means “is this medium in color?”
+一般来说，媒体特性描述符的格式类似于 CSS 中的属性-值对。有一些不同之处，最明显的是一些特性可以在没有附加值的情况下指定。因此，例如，任何基于颜色的媒体将使用(color)进行匹配，而任何使用 16 位颜色深度的媒体将使用(color: 16)进行匹配。实际上，使用没有值的描述符是对描述符的真/假测试:(颜色)表示“该媒体是彩色的吗？”
 
-> 一般来说，媒体特性描述符的格式类似于 CSS 中的属性-值对。有一些不同之处，最明显的是一些特性可以在没有附加值的情况下指定。因此，例如，任何基于颜色的媒体将使用(color)进行匹配，而任何使用 16 位颜色深度的媒体将使用(color: 16)进行匹配。实际上，使用没有值的描述符是对描述符的真/假测试:(颜色)表示“该媒体是彩色的吗?”
-
-Multiple feature descriptors can be linked with the and logical keyword. In fact, there are two logical keywords in media queries:
-
-> 多个特征描述符可以与 and logical 关键字链接。事实上，在媒体查询中有两个逻辑关键字:
+多个特征描述符可以与 and logical 关键字链接。事实上，在媒体查询中有两个逻辑关键字:
 
 `and`
 
-Links together two or more media features in such a way that all of them must be true for the query to be true. For example, (color) and (orientation: land scape) and (min-device-width: 800px) means that all three conditions must be satisfied: if the media environment has color, is in landscape orientation, and the device’s display is at least 800 pixels wide, then the stylesheet is used.
-
-> 将两个或多个媒体特性链接在一起，使所有特性都为真，查询才为真。例如，(color)和(朝向:landscape)和(min-device-width: 800px)意味着必须满足所有三个条件:如果媒体环境有颜色，处于横向方向，并且设备的显示宽度至少为 800 像素，则使用样式表。
+将两个或更多的媒体特性链接在一起，只有所有特性都为真，查询才为真。例如，(color) and (orientation: land scape) and (min-device-width: 800px) 意味着必须满足所有三个条件：如果媒体环境有颜色，处于横向方向，并且设备的显示宽度至少为 800 像素，则使用该样式表。
 
 `not`
 
-Negates the entire query such that if all of the conditions are true, then the stylesheet is not applied. For example, not (color) and (orientation: landscape) and (min-device-width: 800px) means that if the three conditions are satisfied, the statement is negated. Thus, if the media environment has color, is in landscape orientation, and the device’s display is at least 800 pixels wide, then the stylesheet is not used. In all other cases, it will be used.
+否定整个查询，如果所有条件都为真，则不应用样式表。例如，not (color) and (orientation: landscape) and (min-device-width: 800px) 表示同时如果满足这三个条件，则语句被否定。因此，如果媒体环境有颜色，是横向的，并且设备的显示宽度至少为 800 像素，那么样式表将不被使用。在其它情况下，都将使用它。
 
-> 否定整个查询，如果所有条件都为真，则不应用样式表。例如，not (color)和(orientation: landscape)和(min-device-width: 800px)表示如果满足这三个条件，则语句被否定。因此，如果媒体环境有颜色，是横向的，并且设备的显示宽度至少为 800 像素，那么样式表将不被使用。在所有其他情况下，都将使用它。
+注意，not 关键字只能在媒体查询的开头使用。像  (color) and not (min-device-width: 800px) 这样的代码是不合法的。在这种情况下，查询将被忽略。还要注意的是，那些太老而不能理解媒体查询的浏览器总是会跳过一个以 not 开头的样式表。没有用于媒体查询的 OR 关键字。作为代替，分隔查询列表的逗号提供了 or 的功能，print 表示“如果媒体是屏幕或打印机则应用”。screen and (max-color: 2) or (monochrome) 是无效的，会被忽略，你应该写 screen and (max-color: 2), screen and (monochrome)。
 
-Note that the not keyword can only be used at the beginning of a media query. It is not legal to write something like (color) and not (min-device-width: 800px). In such cases, the query will be ignored. Note also that browsers too old to understand media queries will always skip a stylesheet whose media descriptor starts with not. There is no OR keyword for use in media queries. Instead, the commas that separate a list of queries serve the function of an OR—screen, print means “apply if the media is screen or print.” Instead of screen and (max-color: 2) or (monochrome), which is invalid and thus ignored, you should write screen and (max-color: 2), screen and (monochrome).
-
-> 注意，not 关键字只能在媒体查询的开头使用。像(color)和(min-device-width: 800px)这样的代码是不合法的。在这种情况下，查询将被忽略。还要注意的是，那些太老而不能理解媒体查询的浏览器总是会跳过一个以 not 开头的样式表。没有用于媒体查询的 OR 关键字。相反，分隔查询列表的逗号具有 or - screen 的功能，print 表示“如果媒体是 screen 或 print，则应用”。你应该写 screen 和(max-color: 2)或(monochrome)，而不是 screen 和(max-color: 2)或(monochrome)，这是无效的，因此被忽略了。
-
-There is one more keyword, only, which is designed to create deliberate backward incompatibility (yes, really):
-
-> 还有一个关键字 only，它被设计成故意向后不兼容(是的，真的):
+还有一个关键字 only，它被设计成故意向后不兼容(没错，真的):
 
 `only`
 
-Used to hide a stylesheet from browsers too old to understand media queries. For example, to apply a stylesheet in all media, but only in those browsers that understand media queries, you write something like @import url(new.css) only all. In browsers that do understand media queries, the only keyword is ignored and the stylesheet is applied. In browsers that do not understand media queries, the only keyword creates an apparent media type of only all, which is not valid. Thus, the stylesheet is not applied in such browsers. Note that the only keyword can only be used at the beginning of a media query.
+用于对那些过于老的无法理解媒体查询参数的浏览器隐藏样式表。例如，仅为那些能理解媒体查询参数的浏览器，在所有媒体应用一份样式表，你可以这么写 @import url(new.css) only all。那些能理解媒体查询参数的浏览器会忽略 only 关键字，并应用样式表。而对那些无法理解媒体查询参数的浏览器，only 关键字创建了一个 only all 的媒体类型，而这种媒体类型是无效的。因此，在这些浏览器中，该样式表会被忽略。注意，only 关键字仅能用在媒体查询参数的开头。
 
-### 1.5.5 Media Feature Descriptors and Value Types
+### 1.5.5 媒体特性描述符和值类型
 
-So far we’ve seen a number of media feature descriptors in the examples, but not a complete list. Following is a list of all possible descriptors (current as of late 2017):
+至此为止，我们已经在例子中看了很多媒体特性描述符了，但没有一个完整的列表。以下是一份完整的可用描述符列表（截止 2017 年末）：
 
 - width
 - min-width
@@ -864,18 +809,18 @@ So far we’ve seen a number of media feature descriptors in the examples, but n
 - scan
 - grid
 
-In addition, two new value types were added:
+除此之外，还加了两个新的值类型：
 
 - `<ratio>`
 - `<resolution>`
 
-A complete description of these descriptors and values, and how to use them, can be found in Chapter 20.
+这些描述符和取值的完整介绍和使用方法可在第 20 章找到。
 
-## 1.6 Feature Queries
+## 1.6 特性查询参数
 
-Between 2015 and 2016, CSS gained the ability to apply blocks of CSS when certain CSS property-value combinations were supported by the user agent. These are known as feature queries.
+2015 和 2016 年间，CSS 获得了在用户代理支持某项属性-值对时应用某些 CSS 块的能力。这个能力被称为特性查询参数。
 
-They’re very similar to media queries in structure. Consider a situation where you want to only apply color to element if color is a supported property. (Which it certainly should be!) That would look like this:
+它在结构上和媒体查询参数十分类似。考虑某种情况下，你只想在 color 是个受支持的属性时对元素使用 color（本该如此）。看起来像这样：
 
 ```css
 @supports (color: black) {
@@ -891,9 +836,9 @@ They’re very similar to media queries in structure. Consider a situation where
 }
 ```
 
-That says, in effect, “If you recognize and can do something with the property-value combination color: black, apply these styles. Otherwise, skip these styles.” In user agents that don’t understand @supports, the entire block is skipped over.
+也就是说，如果你能识别并响应属性-值对 color: black，使用以下样式。否则，跳过这些样式。那些不理解 @supports 的用户代理会完全忽略这块内容。
 
-Feature queries are a perfect way to progressively enhance your styles. For example, suppose you want to add some grid layout to your existing float-and-inline-block layout. You can keep the old layout scheme, and then later in the stylesheet include a block like this:
+特性查询参数是逐步提高样式兼容性的完美解决方案。例如，结社你想要为已存在的浮动和内联区块布局添加一些栅格布局。你可以保留原布局方案，然后在样式表中使用如下区块：
 
 ```css
 @supports (display: grid) {
@@ -905,9 +850,9 @@ Feature queries are a perfect way to progressively enhance your styles. For exam
 }
 ```
 
-This block of styles will be applied in browsers that understand grid display, overriding the old styles that governed page layout, and then applying the styles needed to make things work in a grid-based future. Browsers too old to understand grid layout will most likely also be too old to understand @supports, so they’ll skip the whole block entirely, as if it had never been there.
+这块样式会被那些能理解栅格布局的浏览器引用，覆盖旧的布局样式，并应用那些使得栅格布局生效的样式。无法理解栅格布局的老旧浏览器大概率也无法理解 @supports，所以它们会忽略整个区块，好像它从未出现过一样。
 
-Feature queries can be embedded inside each other, and indeed can be embedded inside media queries, as well as vice versa. You could write screen and print styles based on flexible-box layout, and wrap those media blocks in an @supports (display: flex) block:
+特性查询参数能被循环嵌套，还可以被嵌入媒体查询参数中，反之亦然。你可以编写基于屏幕和打印机样式的响应式布局，并将这些媒体块包裹在一个 @supports (display: flex) 块中：
 
 ```css
 @supports (display: flex) {
@@ -920,7 +865,7 @@ Feature queries can be embedded inside each other, and indeed can be embedded in
 }
 ```
 
-Conversely, you could add @supports() blocks inside various responsive-design media query blocks:
+反过来，你可以在各种响应式设计媒体查询块中添加  @supports() 块：
 
 ```css
 @media screen and (max-width: 30em) {
@@ -935,9 +880,9 @@ Conversely, you could add @supports() blocks inside various responsive-design me
 }
 ```
 
-How you organize these blocks is really up to you.
+如何组织这些块完全取决于你。
 
-As with media queries, feature queries also permit logical operators. Suppose we want to apply styles only if a user agent supports both grid layout and CSS shapes. Here’s how that might go:
+与媒体查询块一样，特性查询块也允许逻辑操作符。假设，我们仅想在用户代理同时支持栅格布局和 CSS 形状时应用样式。以下是可能的代码：
 
 ```css
 @supports (display: grid) and (shape-outside: circle()) {
@@ -945,9 +890,7 @@ As with media queries, feature queries also permit logical operators. Suppose we
 }
 ```
 
-This is essentially equivalent to writing the following:
-
-> 这基本上相当于写以下内容:
+这基本上相当于写以下内容:
 
 ```css
 @supports (display: grid) {
@@ -957,9 +900,7 @@ This is essentially equivalent to writing the following:
 }
 ```
 
-However, there’s more than “and” operations available. CSS Shapes (covered in detail in Chapter 10) are a good example of why “or” is useful, because for a long time WebKit only supported CSS shapes via vendor-prefixed properties. So if you want to use shapes, you can use a feature query like this:
-
-> 但是，除了“和”操作之外，还有更多可用的操作。CSS 形状(在第 10 章中详细介绍)是一个很好的例子，说明为什么“或”是有用的，因为长期以来 WebKit 只通过供应商前缀属性支持 CSS 形状。因此，如果你想使用形状，你可以使用这样的功能查询:
+但是，除了 “and” 操作之外，还有更多可用的操作。CSS 形状(在第 10 章中详细介绍)是一个很好的例子，说明为什么“或”是有用的，因为长期以来 WebKit 只通过供应商前缀属性支持 CSS 形状。因此，如果你想使用形状，你可以使用这样的特性查询块:
 
 ```css
 @supports (shape-outside: circle()) or (-webkit-shape-outside: circle()) {
@@ -969,7 +910,7 @@ However, there’s more than “and” operations available. CSS Shapes (covered
 
 You’d still have to make sure to use both prefixed and unprefixed versions of the shape properties, but this would let you add support for those properties backward in the WebKit release line while supporting other browsers that also support shapes, but not via prefixed properties.
 
-> 您仍然需要确保同时使用带前缀和不带前缀的形状属性，但是这将允许您在 WebKit 发布行中向后添加对这些属性的支持，同时支持其他也支持形状的浏览器，但不是通过带前缀的属性。
+> 你仍然需要确保同时使用带前缀和不带前缀的形状属性，但是这将允许在 WebKit 发布行中向后添加对这些属性的支持，同时支持其他也支持形状的浏览器，但不是通过带前缀的属性。
 
 All this is incredibly handy because there are situations where you might want to apply different properties than those you’re testing. So, to go back to grid layout for a second, you might want to change the margins and so forth on your layout elements when grid is in use. Here’s a simplified version of that approach:
 
@@ -998,9 +939,7 @@ div.column:last-child {
 }
 ```
 
-It’s possible to use negation as well. For example, you could apply the following styles in situations where grid layout is not supported:
-
-> 也可以使用否定。例如，你可以在不支持网格布局的情况下应用以下样式:
+也可以使用否定。例如，你可以在不支持网格布局的情况下应用以下样式:
 
 ```css
 @supports not (display: grid) {
@@ -1008,9 +947,7 @@ It’s possible to use negation as well. For example, you could apply the follow
 }
 ```
 
-You can combine your logical operators into a single query, but parentheses are required to keep the logic straight. Suppose we want a set of styles to be applied when color is supported, and when one of either grid or flexible box layout is supported. That’s written like this:
-
-> 您可以将逻辑运算符组合成单个查询，但是需要使用括号来保持逻辑的正确性。假设我们希望在支持颜色时应用一组样式，在支持网格或灵活的框布局时应用一组样式。它是这样写的:
+你可以将逻辑运算符组合成单个查询，但是需要使用括号来保持逻辑的正确性。假设我们希望在支持颜色，且支持网格或灵活的框布局时应用一组样式。可以这样写的:
 
 ```css
 @supports (color: black) and ((display: flex) or (display: grid)) {
@@ -1018,17 +955,13 @@ You can combine your logical operators into a single query, but parentheses are 
 }
 ```
 
-Notice how there’s another set of parentheses around the “or” part of the logic, enclosing the grid and flex tests. Those extra parentheses are required. Without them, the entire expression will fail, and the styles inside the block will be skipped. In other words, don’t do this:
-
-> 请注意，在逻辑的“或”部分周围还有一组括号，用于封装网格和 flex 测试。需要那些额外的括号。没有它们，整个表达式将失败，块内的样式将被跳过。换句话说，不要这样做:
+请注意，在逻辑的“或”部分周围还有一组括号，用于封装栅格和 flex 测试。这些额外的括号是必要的。没有它们，整个表达式将失败，块内的样式将被跳过。换句话说，不要这样做:
 
 ```css
 @supports (color: black) and (display: flex) or (display: grid) {
 ```
 
-Finally, you might wonder why both a property and value are required in feature query tests. After all, if you’re using shapes, all you need to test for is shape-outside, right? It’s because a browser can easily support a property without supporting all its values. Grid layout is a perfect example for this. Suppose you could test for grid support like this:
-
-> 最后，您可能想知道为什么特性查询测试需要属性和值。毕竟，如果你使用的是形状，你需要测试的只是外形，对吧?这是因为浏览器可以很容易地支持一个属性，而不需要支持它的所有值。网格布局就是一个完美的例子。假设你可以像这样测试网格支持:
+ 最后，您可能想知道为什么特性查询测试同时需要属性和值。毕竟，如果你使用的是形状，你需要测试的只是外形，对吧？这是因为浏览器可以很容易地支持一个属性，而不是支持它的所有值。网格布局就是一个完美的例子。假设你可以像这样测试网格支持:
 
 ```css
 @supports (display) {
@@ -1036,18 +969,12 @@ Finally, you might wonder why both a property and value are required in feature 
 }
 ```
 
-Well, even Internet Explorer 4 supported display. Any browser that understands @supports will certainly understand display and many of its values—but maybe not grid. That’s why property and value are always tested in feature queries.
+不过，即便是 Internet Explorer 4 也支持 display 属性。任何理解 @supports 的浏览器肯定都能理解 display，而其支持的取值可能不包括 grid。这就是为什么属性和值总是在特性查询块中测试的原因。
 
-> 甚至 Internet Explorer 4 也支持显示。任何理解@supports 的浏览器肯定都能理解 display 和它的许多值——但可能不是 grid。这就是为什么属性和值总是在特性查询中测试的原因。
+<Tips tips="orange">牢记这些仅是特性查询，而不是正确性查询。浏览器能理解你测试的特性，但可能错误地实现了它。所以，你并未从浏览器获得其会正确支持某项功能的承诺。所有成功的查询结果仅意味着浏览器理解了你的语言，并试着实现它。</Tips>
 
-<Tips tips="orange">Remember that these are feature queries, not correctness queries. A browser can understand the feature you’re testing for, but implement it with bugs. So you’re not getting an assurance from the browser that it supports something correctly. All a positive featurequery result means is that the browser understands what you’ve said and makes some sort of attempt to support it.</Tips>
+## 1.7 总结
 
-## 1.7 Summary
+使用 CSS，完全改变用户代理显示元素的方式是可能的。这可以通过 display 属性在基本级别上执行，也可以通过将样式表与文档关联的不同方式执行。用户永远不会知道这是通过外部样式表还是内嵌样式表，甚至是内联样式表来完成的。外部样式表的真正重要性在于，它允许作者将站点的所有表示信息放在一个地方，并将所有文档指向那个地方。这不仅使站点更新和维护变得轻而易举，而且还有助于节省带宽，因为所有的表示都从文档中删除了。使用 @supports()，甚至可以在原生 CSS 中进行一些基本的渐进式增强。
 
-With CSS, it is possible to completely change the way elements are presented by a user agent. This can be executed at a basic level with the display property, and in a different way by associating stylesheets with a document. The user will never know whether this is done via an external or embedded stylesheet, or even with an inline style. The real importance of external stylesheets is the way in which they allow authors to put all of a site’s presentation information in one place, and point all of the documents to that place. This not only makes site updates and maintenance a breeze, but it helps to save bandwidth, since all of the presentation is removed from documents. With @supports(), it’s even possible to do some basic progressive enhancement in native CSS.
-
-> 使用 CSS，完全改变用户代理显示元素的方式是可能的。这可以通过 display 属性在基本级别上执行，也可以通过将样式表与文档关联的不同方式执行。用户永远不会知道这是通过外部样式表还是嵌入式样式表，甚至是内联样式表来完成的。外部样式表的真正重要性在于，它允许作者将站点的所有表示信息放在一个地方，并将所有文档指向那个地方。这不仅使站点更新和维护变得轻而易举，而且还有助于节省带宽，因为所有的表示都从文档中删除了。使用@supports()，甚至可以在原生 CSS 中进行一些基本的渐进式增强。
-
-To make the most of the power of CSS, authors need to know how to associate a set of styles with the elements in a document. To fully understand how CSS can do all of this, authors need a firm grasp of the way CSS selects pieces of a document for styling, which is the subject of the next chapter.
-
-> 为了充分利用 CSS 的强大功能，作者需要知道如何将一组样式与文档中的元素关联起来。要完全理解 CSS 是如何做到这一切的，作者需要掌握 CSS 选择文档片段进行样式化的方法，这是下一章的主题。
+为了充分利用 CSS 的强大功能，开发者需要知道如何将一组样式与文档中的元素关联起来。要完全理解 CSS 是如何做到这一切的，作者需要掌握 CSS 选择文档片段进行样式化的方法，这是下一章的主题。
